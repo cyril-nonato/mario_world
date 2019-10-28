@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign In Component Test should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  width: 70%;
+  margin: 5rem auto;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: 500px;
+}
+
+.c1 {
+  grid-column: 1 / 2;
+  background-image: linear-gradient( to left bottom, rgba(47,47,47,.8),rgba(47,47,47,.8)), url(sign-in-form.jpg);
+  background-position: right;
+  background-size: cover;
+  padding: 2rem;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.c3 {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.c4 {
+  grid-column: 2 / 3;
+  width: 80%;
+  margin: auto;
+  padding: 2rem;
+}
+
+.c4 input {
+  width: 100%;
+}
+
+.c5 {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.c10 {
+  display: block;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.c11 {
+  color: #2E2F2F;
+  font-weight: bolder;
+  margin-left: 1rem;
+}
+
+.c6 {
+  margin: 1.5rem 0;
+}
+
+.c7 {
+  border: none;
+  border-bottom: 2px solid #454545;
+  padding: .5rem 0;
+  font-size: 1.2rem;
+  display: inline-block;
+  width: inherit;
+  font-family: inherit;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7::-webkit-input-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c7::-moz-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c7:-ms-input-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c7::placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c7:placeholder-shown ~ label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-3rem);
+  -ms-transform: translateY(-3rem);
+  transform: translateY(-3rem);
+}
+
+.c8 {
+  -webkit-transform: translateY(.5rem);
+  -ms-transform: translateY(.5rem);
+  transform: translateY(.5rem);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+
+.c9 {
+  color: #FFFFFF;
+  font-weight: bolder;
+  background-color: #454545;
+  border: none;
+  border-radius: 2px;
+  padding: .6rem 1.2rem;
+  text-transform: uppercase;
+}
+
+.c9:hover {
+  cursor: pointer;
+}
+
+<section
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <h2
+        class="c2"
+      >
+        Connect now
+      </h2>
+      <span
+        class="c3"
+      >
+        And get in touch with your friends in the world of mario
+      </span>
+    </div>
+    <form
+      class="c4"
+    >
+      <h3
+        class="c5"
+      >
+        SIGN-IN FORM
+      </h3>
+      <div
+        class="c6"
+      >
+        <input
+          class="c7"
+          data-testid="input"
+          name="email"
+          placeholder="Email"
+          required=""
+          type="email"
+        />
+        <label
+          class="c8"
+          data-testid="label"
+        >
+          Email
+        </label>
+      </div>
+      <div
+        class="c6"
+      >
+        <input
+          class="c7"
+          data-testid="input"
+          name="password"
+          placeholder="Password"
+          required=""
+          type="password"
+        />
+        <label
+          class="c8"
+          data-testid="label"
+        >
+          Password
+        </label>
+      </div>
+      <button
+        class="c9"
+        data-testid="button"
+        type="submit"
+      >
+        Sign-in
+      </button>
+      <span
+        class="c10"
+      >
+        Don't have an account ?
+        <a
+          class="c11"
+          href="/sign-up"
+        >
+          Sign-up here
+        </a>
+      </span>
+    </form>
+  </section>
+</DocumentFragment>
+`;

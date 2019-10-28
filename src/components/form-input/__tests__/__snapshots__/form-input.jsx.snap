@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name of the group Should match the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  margin: 1.5rem 0;
+}
+
+.c1 {
+  border: none;
+  border-bottom: 2px solid #454545;
+  padding: .5rem 0;
+  font-size: 1.2rem;
+  display: inline-block;
+  width: inherit;
+  font-family: inherit;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c1::-moz-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c1:-ms-input-placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c1::placeholder {
+  color: #ccc;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.c1:placeholder-shown ~ label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-3rem);
+  -ms-transform: translateY(-3rem);
+  transform: translateY(-3rem);
+}
+
+.c2 {
+  -webkit-transform: translateY(.5rem);
+  -ms-transform: translateY(.5rem);
+  transform: translateY(.5rem);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: block;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+
+<div
+    class="c0"
+  >
+    <input
+      class="c1"
+      data-testid="input"
+      name="name"
+      placeholder="placeholder"
+      required=""
+      type="type"
+    />
+    <label
+      class="c2"
+      data-testid="label"
+    >
+      label
+    </label>
+  </div>
+</DocumentFragment>
+`;
