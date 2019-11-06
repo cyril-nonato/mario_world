@@ -10,8 +10,11 @@ const EditDeletePost = ({ deleteClick, post, onSubmit, onChange, backdropClick }
   const { title, content } = post;
 
   return (
+    
     <S.EditDeletePostContainer title={title} content={content} onSubmit={onSubmit}>
+      
       <Backdrop onClick={backdropClick} />
+
       <S.Form title={title} content={content}>
         <S.H2>Edit Post</S.H2>
         <FormInput

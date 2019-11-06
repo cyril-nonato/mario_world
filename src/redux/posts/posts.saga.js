@@ -1,11 +1,13 @@
 import { take, all, call, takeLatest, put, select, fork, cancel, cancelled } from 'redux-saga/effects'
 import actionTypes from './posts.types'
 import rsf, { firestore, firebase } from '../../firebase/redux-saga-firebase'
-import { postsRequestSuccess, postsUserRequestSuccess, postCreateRequestSuccess, postCreateRequestFailure, postEditRequestSuccess, postEditRequestFailure, postsUserRequestFailure, postDeleteRequestSuccess, postDeleteRequestFailure } from './posts.actions'
+import { postsRequestSuccess, postsUserRequestSuccess, postCreateRequestSuccess, postCreateRequestFailure, postEditRequestSuccess, postEditRequestFailure, postsUserRequestFailure, postDeleteRequestSuccess, postDeleteRequestFailure, postsRequestFailure } from './posts.actions'
 import { selectAuthUserCreds } from '../auth/auth.selector';
 import { docsToMap, checkTitleAndContentLength } from '../../utils/redux';
 
 export function* postsRequestAsync() {
+
+  // Listens to any live changes in the collection
   const channel = yield rsf.firestore.channel(
     firestore.collection('posts').orderBy('created_at', 'desc'));
 
@@ -18,7 +20,7 @@ export function* postsRequestAsync() {
     }
 
   } catch (error) {
-
+      yield put(postsRequestFailure(error.message));
   } finally {
     if (yield cancelled()) {
       channel.close();
@@ -29,11 +31,9 @@ export function* postsRequestAsync() {
 export function* postsRequest() {
   while (yield take(actionTypes.POSTS_REQUEST)) {
     const sync = yield fork(postsRequestAsync);
-
     yield take(actionTypes.POSTS_REQUEST_CANCEL);
     yield cancel(sync);
   }
-  // yield takeLatest(actionTypes.POSTS_REQUEST, postsRequestAsync);
 
 }
 
@@ -62,7 +62,6 @@ export function* postsUserRequestAsync() {
     firestore.collection('posts').orderBy('created_at', 'desc').where('user_id', '==', `${user_id}`))
 
   try {
-
     while (true) {
       const querySnapshot = yield take(channel);
       const docs = querySnapshot.docs;
@@ -95,7 +94,6 @@ export function* postDeleteRequestAsync({payload}) {
   }
 }
 
-
 export function* postCreateRequest() {
   yield takeLatest(actionTypes.POST_CREATE_REQUEST, postCreateRequestAsync);
 }
@@ -111,7 +109,6 @@ export function* postEditRequest() {
 export function* postDeleteRequest() {
   yield takeLatest(actionTypes.POST_DELETE_REQUEST, postDeleteRequestAsync);
 }
-
 
 export function* postsSaga() {
   yield all([

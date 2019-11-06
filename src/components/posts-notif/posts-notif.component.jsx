@@ -19,7 +19,6 @@ const PostsNotif = ({ onNotificationsRequestCancel, onPostsRequest, onNotificati
     onNotificationsRequest();
 
     return () => {
-
       onNotificationsRequestCancel();
     }
 

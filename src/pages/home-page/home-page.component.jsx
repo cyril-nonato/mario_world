@@ -1,6 +1,6 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import PostsNotifContainer from '../../components/posts-notif/posts-notif.container';
+import Home from '../../components/home/home.component';
 
 const HomePage = ({match, selectAuthIsAuth}) => {
 
@@ -8,9 +8,12 @@ const HomePage = ({match, selectAuthIsAuth}) => {
     <main>
       {
         selectAuthIsAuth &&
-        <Route path={`${match.url}`} component={PostsNotifContainer} />
+        <PostsNotifContainer />
       }
-      
+      {
+        !selectAuthIsAuth &&
+        <Home />
+      }
     </main>
   );
 }

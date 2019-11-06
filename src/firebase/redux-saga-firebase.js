@@ -1,5 +1,5 @@
 import * as firebase from 'firebase/app'
-import 'firebase/firestore' // 👈 If you're using firestore
+import 'firebase/firestore'
 import 'firebase/auth'
 import ReduxSagaFirebase from 'redux-saga-firebase'
 

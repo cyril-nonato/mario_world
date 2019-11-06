@@ -7,13 +7,13 @@ const PopUp = ({ success, failure, clearAll, checkPopUp }) => {
 
   useEffect(() => {
 
+    // Resets success, failure, popUp state to default
     return () => {
       clearAll();
     }
 
   }, [clearAll])
 
-  // Returns null if success or failure is empty / undefined
   if (!checkPopUp) {
     return null;
   }
@@ -25,7 +25,7 @@ const PopUp = ({ success, failure, clearAll, checkPopUp }) => {
         <S.IconContainer success={success} failure={failure}>
           {
             success &&
-          <S.Icon src={ThumbsUpLogo} />
+            <S.Icon src={ThumbsUpLogo} />
           }
           {
             failure &&

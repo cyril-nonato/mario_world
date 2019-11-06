@@ -1,4 +1,4 @@
-import { all, call, takeLatest, put, takeLeading, cancelled, cancel, fork } from 'redux-saga/effects'
+import { all, call, takeLatest, put, takeLeading } from 'redux-saga/effects'
 import actionTypes from './auth.types'
 import rsf, { firebase } from '../../firebase/redux-saga-firebase'
 import { signUpRequestSuccess, signUpRequestFailure, signInRequestFailure, signInRequestSuccess } from './auth.actions'
@@ -17,9 +17,10 @@ export function* getUserCreds(user) {
 
 export function* signUpRequestAsync({ payload }) {
   try {
+
     const userData = yield filterUserCreds(payload);
+
     const { email, password, ...otherData } = userData;
-    console.log(userData);
 
     // Create auth profile for the user
     const { user } = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
@@ -63,14 +64,9 @@ export function* signUpRequest() {
 }
 
 export function* signInRequest() {
-  // const task = yield takeLatest(actionTypes.SIGN_IN_REQUEST, signInRequestAsync)
   yield takeLatest(actionTypes.SIGN_IN_REQUEST, signInRequestAsync)
-
 }
 
-export function* cancelSaga(task) {
-  yield cancel(task)
-}
 
 export function* authSaga() {
   yield all([

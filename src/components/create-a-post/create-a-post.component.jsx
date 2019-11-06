@@ -8,13 +8,13 @@ import PopUp from '../pop-up/pop-up.component'
 
 const CreateAPost = ({ onPostCreateRequest, selectPostsFailure, selectPostsSuccess, onPostsPopUpClear, selectPostsPopUp }) => {
   const [details, setDetails] = useState({});
+
   const handleChange = e => {
     setDetails({
       ...details,
       [e.target.name]: e.target.value
     })
   };
-
 
   const handleSubmit = e => {
     e.preventDefault();

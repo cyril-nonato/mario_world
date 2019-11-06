@@ -36,7 +36,7 @@ const SignUp = ({ onAuthPopUpClear, onSignUpRequest, selectAuthUserCreds, histor
             Join now
         </S.H2>
           <S.Span>
-            To access to all fun in the world of mario
+            To get access to all fun in the world of mario
         </S.Span>
         </S.DivBg>
 

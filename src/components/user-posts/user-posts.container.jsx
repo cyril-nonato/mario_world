@@ -11,7 +11,7 @@ const mapStateToProps = createStructuredSelector({
   selectPostsFilteredData,
   selectPostsPopUp,
   selectPostsSuccess,
-  selectPostsFailure
+  selectPostsFailure,
 });
 
 const mapDispatchToProps = dispatch => ({

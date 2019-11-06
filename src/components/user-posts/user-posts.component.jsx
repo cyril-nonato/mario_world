@@ -1,16 +1,17 @@
 import React, { useState, Fragment } from 'react'
 import Post from '../post/post.component'
-
 import * as S from './user-posts.styles'
 import EditDeletePostContainer from '../edit-delete-post/edit-delete-post.container';
 import PopUp from '../pop-up/pop-up.component';
 
-const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRequest, selectPostsPopUp, selectPostsSuccess, selectPostsFailure, onPostsPopUpClear  }) => {
+const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRequest, selectPostsPopUp, selectPostsSuccess, selectPostsFailure, onPostsPopUpClear }) => {
+  
+  const [selectedPost, setSelectedPost] = useState({ title: '', content: '' });
+  
 
-  const [selectedPost, setSelectedPost] = useState({title: '', content: ''});
 
   const handleChange = e => {
-    console.log('ye');
+
     setSelectedPost({
       ...selectedPost,
       [e.target.name]: e.target.value
@@ -22,7 +23,7 @@ const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRe
   }
 
   const handleBackdrop = () => {
-    setSelectedPost({title: '', content: ''}) 
+    setSelectedPost({ title: '', content: '' })
   }
 
   const handleSubmit = e => {
@@ -33,14 +34,25 @@ const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRe
 
   const handleDelete = () => {
     onPostsDeleteRequest(selectedPost.id);
-    setSelectedPost({title: '', content: ''}) 
+    setSelectedPost({ title: '', content: '' })
   }
 
   return (
     <Fragment>
 
-      <EditDeletePostContainer deleteClick={handleDelete} backdropClick={handleBackdrop} onChange={handleChange} onSubmit={handleSubmit} post={selectedPost} />
-      <PopUp checkPopUp={selectPostsPopUp} clearAll={onPostsPopUpClear} success={selectPostsSuccess} failure={selectPostsFailure} />
+      <EditDeletePostContainer
+        deleteClick={handleDelete}
+        backdropClick={handleBackdrop}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        post={selectedPost}
+      />
+      <PopUp
+        checkPopUp={selectPostsPopUp}
+        clearAll={onPostsPopUpClear}
+        success={selectPostsSuccess}
+        failure={selectPostsFailure}
+      />
 
       <S.UserPostsContainer>
         {

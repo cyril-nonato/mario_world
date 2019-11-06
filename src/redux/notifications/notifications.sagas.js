@@ -5,8 +5,11 @@ import { notificationsRequestSuccess, notificationsRequestFailure } from './noti
 import { docsToMap } from '../../utils/redux';
 
 export function* notificationsRequestAsync() {
+  
+  // Listens for any live changes in the collection
   const channel = rsf.firestore.channel(
     firestore.collection('users').orderBy('created_at', 'desc'));
+  
   try {
     while (true) {
       const querySnapshot = yield take(channel);

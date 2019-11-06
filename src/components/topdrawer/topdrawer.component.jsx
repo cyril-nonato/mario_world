@@ -5,6 +5,7 @@ import * as S from './topdrawer.styles';
 const Topdrawer = ({ showTopdrawer, user, onClick, onSignOut }) => {
   let content;
 
+  // Show this if there is an aunthenticated user
   if (user) {
     content = (
       <S.UlUser onClick={onClick}>
@@ -25,6 +26,7 @@ const Topdrawer = ({ showTopdrawer, user, onClick, onSignOut }) => {
       </S.UlUser>
     )
   } else {
+  // Show this if there is no aunthenticated user
     content = (
       <S.UlNoUser>
         <S.Li>
