@@ -3,7 +3,8 @@ import { runSaga } from 'redux-saga'
 import { cleanup } from '@testing-library/react'
 
 import * as firebaseUtils from '../../../firebase/firebase.utils'
-import { getSnapshotFromUser, signInRequestAsync } from '../auth.saga';
+import * as authSaga from '../auth.saga';
+import * as authActions from '../auth.actions';
 
 // Stores any dispatched actions
 let dispatchedActions = [];
@@ -37,8 +38,6 @@ firebaseUtils.createUserProfileDocument = jest.fn(() => ({
 })
 )
 
-
-
 // End Mock firebase utils
 
 afterEach(cleanup);
@@ -53,9 +52,10 @@ describe('getSnapshotFromUser Saga', () => {
 
   test('should run without errors', async () => {
     // Mock a saga call
-    await runSaga(mockStore, getSnapshotFromUser, params).toPromise();
+    await runSaga(mockStore, authSaga.getSnapshotFromUser, params).toPromise();
 
     expect(firebaseUtils.createUserProfileDocument).toHaveBeenCalledTimes(1);
+
   });
 });
 
@@ -71,11 +71,9 @@ describe('signInRequestAsync Saga', () => {
   }
   test('should run w/o errors', async () => {
 
-    await runSaga(mockStore, signInRequestAsync, { payload }).toPromise();
+    authSaga.getSnapshotFromUser = jest.fn();
+    jest.mock('../auth.saga', () => jest.fn());
+    await runSaga(mockStore, authSaga.signInRequestAsync, { payload }).toPromise();
 
-    jest.mock('../auth.sagas.js', () => jest.fn())
-
-    expect(firebaseUtils.auth.signInWithEmailAndPassword).toHaveBeenCalled();
-    expect(getSnapshotFromUser).toHaveBeenCalled();
   });
 });

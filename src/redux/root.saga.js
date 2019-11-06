@@ -1,9 +1,13 @@
-import {takeLatest, call, all, put} from 'redux-saga/effects'
+import { call, all } from 'redux-saga/effects'
+import { postsSaga } from './posts/posts.saga'
 import { authSaga } from './auth/auth.saga'
+import { notificationsSaga } from './notifications/notifications.sagas'
 
 function* rootSaga() {
   yield all([
-    call(authSaga)
+    call(postsSaga),
+    call(authSaga),
+    call(notificationsSaga)
   ])
 };
 

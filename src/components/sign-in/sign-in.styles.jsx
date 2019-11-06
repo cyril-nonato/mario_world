@@ -12,10 +12,15 @@ export const Section = styled.section`
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 500px;
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    width: 90%;
+    border: 2px solid ${theme.colors.black};
+  }
+
 `;
 
-export const Div = styled.div`
-  grid-column: 1 / 2;
+export const DivBg = styled.div`
   background-image: linear-gradient(
     to left bottom, 
     rgba(${theme.colors.blackRGB}, .8), rgba(${theme.colors.blackRGB}, .8)),     
@@ -28,6 +33,10 @@ export const Div = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    display: none;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -43,16 +52,21 @@ export const Span = styled.span`
 `;
 
 export const Form = styled.form`
-  grid-column: 2 / 3;
   width: 80%;
   margin: auto;
   padding: 2rem;
+
   input {
     width: 100%;
+    background-color: transparent;
+  }
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    grid-column: 1 / 3;
   }
 `;
 
-export const FormH3 = styled.h3`
+export const H3 = styled.h3`
   text-transform: uppercase;
   font-size: 1.4rem;
 `;

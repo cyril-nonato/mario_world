@@ -9,8 +9,10 @@ export const Button = styled.button`
   border-radius: 2px;
   padding: .6rem 1.2rem;
   text-transform: uppercase;
+  transition: all .3s ease-in-out;
 
   &:hover {
     cursor: pointer;
+    transform: translateY(-1px);
   }
 `;

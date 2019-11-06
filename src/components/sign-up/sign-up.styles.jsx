@@ -10,10 +10,15 @@ export const Section = styled.section`
   border-radius: 5px;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.2fr
+  grid-template-columns: 1fr 1.2fr;
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    width: 90%;
+    border: 2px solid ${theme.colors.black};
+  }
 `;
 
-export const Div = styled.div`
+export const DivBg = styled.div`
   grid-column: 1 / 2;
   background-image: linear-gradient(
     to left bottom, 
@@ -27,6 +32,10 @@ export const Div = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    display: none;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -49,9 +58,13 @@ export const Form = styled.form`
   input {
     width: 100%;
   }
+
+  @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
+    grid-column: 1 / 3;
+  }
 `;
 
-export const FormH3 = styled.h3`
+export const H3 = styled.h3`
   text-transform: uppercase;
   font-size: 1.4rem;
 `;

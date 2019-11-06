@@ -37,6 +37,17 @@ export const createUserProfileDocument = async (userAuth, addtionalData) => {
   return userRef;
 }
 
+export const convertQuerySnapshot = (querysnaphot) => {
+  const docs = querysnaphot.docs;
+  const data = docs.map(doc => {
+    if(doc.exists) {
+      return doc.data();
+    } 
+    return null;
+  });
+  console.log(data);
+}
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 

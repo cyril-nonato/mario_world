@@ -7,8 +7,6 @@
 
 # testing
 /coverage
-/__tests__
-/test_utils
 
 # production
 /build

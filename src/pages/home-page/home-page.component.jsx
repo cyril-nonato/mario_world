@@ -1,13 +1,18 @@
 import React from 'react'
-import Register from '../../components/register/register.component'
+import { Route } from 'react-router-dom'
+import PostsNotifContainer from '../../components/posts-notif/posts-notif.container';
 
+const HomePage = ({match, selectAuthIsAuth}) => {
 
-const HomePage = () => {
-  return ( 
-    <section>
-      'Yo'
-    </section>
-   );
+  return (
+    <main>
+      {
+        selectAuthIsAuth &&
+        <Route path={`${match.url}`} component={PostsNotifContainer} />
+      }
+      
+    </main>
+  );
 }
- 
+
 export default HomePage;
