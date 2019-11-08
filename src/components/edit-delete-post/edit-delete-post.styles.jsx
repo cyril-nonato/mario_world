@@ -20,14 +20,14 @@ const hiddenForm = css`
 `
 
 const visibileOrHiddenContainer = props => {
-  if(props.content && props.title) {
+  if(props.id) {
     return visible;
   }
   return hidden;
 };
 
 const visibleOrHiddenForm = props => {
-  if(props.content && props.title) {
+  if(props.id) {
     return visibleForm
   }
   return hiddenForm

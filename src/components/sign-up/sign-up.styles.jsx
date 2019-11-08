@@ -11,6 +11,7 @@ export const Section = styled.section`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
+  border: 2px solid ${theme.colors.black};
 
   @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
     width: 90%;

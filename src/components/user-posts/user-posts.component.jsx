@@ -5,11 +5,9 @@ import EditDeletePostContainer from '../edit-delete-post/edit-delete-post.contai
 import PopUp from '../pop-up/pop-up.component';
 
 const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRequest, selectPostsPopUp, selectPostsSuccess, selectPostsFailure, onPostsPopUpClear }) => {
+  const initState = { title: '', content: '', id: '' }
+  const [selectedPost, setSelectedPost] = useState(initState);
   
-  const [selectedPost, setSelectedPost] = useState({ title: '', content: '' });
-  
-
-
   const handleChange = e => {
 
     setSelectedPost({
@@ -23,18 +21,18 @@ const UserPosts = ({ onPostsDeleteRequest, selectPostsFilteredData, onPostEditRe
   }
 
   const handleBackdrop = () => {
-    setSelectedPost({ title: '', content: '' })
+    setSelectedPost(initState)
   }
 
   const handleSubmit = e => {
     e.preventDefault();
     onPostEditRequest(selectedPost);
-    setSelectedPost();
+    setSelectedPost(initState);
   }
 
   const handleDelete = () => {
     onPostsDeleteRequest(selectedPost.id);
-    setSelectedPost({ title: '', content: '' })
+    setSelectedPost({ title: '', content: '', id: '' })
   }
 
   return (

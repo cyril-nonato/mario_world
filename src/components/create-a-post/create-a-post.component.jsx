@@ -19,6 +19,20 @@ const CreateAPost = ({ onPostCreateRequest, selectPostsFailure, selectPostsSucce
   const handleSubmit = e => {
     e.preventDefault();
     onPostCreateRequest(details);
+  };
+
+  const formInPutProps = {
+    name: 'title', 
+    placeholder: 'Title',
+    label: 'Title',
+    type: 'text'
+  };
+
+  const formTextAreaProps = {
+    name: 'content',
+    rows: 4, 
+    placeholder: 'Content', 
+    label: 'Content'
   }
 
   return (
@@ -28,8 +42,8 @@ const CreateAPost = ({ onPostCreateRequest, selectPostsFailure, selectPostsSucce
         <S.H2>
           Create a Post
         </S.H2>
-        <FormInput onChange={handleChange} name='title' placeholder='Title' label='Title' type='text' />
-        <FormTextarea onChange={handleChange} name='content' rows={4} placeholder='Content' label='Content' />
+        <FormInput onChange={handleChange} {...formInPutProps}  />
+        <FormTextarea onChange={handleChange} {...formTextAreaProps} />
         <CustomButton color='success' type='submit'>Create</CustomButton>
       </S.Form>
     </S.Section>

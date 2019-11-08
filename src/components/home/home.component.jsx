@@ -5,6 +5,7 @@ import { ReactComponent as IconShareLogo} from '../../assets/blogging.svg'
 import * as S from './home.styles'
 
 const Home = () => {
+
   return ( 
     <S.HomeContainer>
       <S.Background />

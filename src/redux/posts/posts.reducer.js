@@ -71,18 +71,20 @@ const postsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
-        filteredData: null,
       }
     case actionTypes.POST_EDIT_REQUEST_SUCCESS:
       return {
         ...state,
         loading: false,
         success: action.payload,
+        failure: null,
         popUp: true
       }
     case actionTypes.POST_EDIT_REQUEST_FAILURE:
       return {
         ...state,
+        loading: false,
+        success: null,
         failure: action.payload,
         popUp: true
       }
@@ -94,14 +96,14 @@ const postsReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.POST_DELETE_REQUEST_SUCCESS:
       return {
         ...state,
-        loading: true,
+        loading: false,
         success: action.payload,
         popUp: true
       }
     case actionTypes.POST_DELETE_REQUEST_FAILURE:
       return {
         ...state,
-        loading: true,
+        loading: false,
         failure: action.payload,
         popUp: true
       }

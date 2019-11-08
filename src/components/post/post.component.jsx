@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 
 import * as S from './post.styles'
 import { timeAgo, checkIfEdited } from '../../utils/components';
 
 const Post = ({ click, post: { title, content, created_at, posted_by, edited } }) => {
-  const timeElapsed = timeAgo(created_at);
+  const timeElapsed = useMemo(() => timeAgo(created_at), [created_at]);
   const editedText = checkIfEdited(edited);
   
   return (

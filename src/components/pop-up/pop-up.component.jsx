@@ -4,7 +4,6 @@ import ThumbsDownLogo from '../../assets/thumbs-down.svg'
 import * as S from './pop-up.styles'
 
 const PopUp = ({ success, failure, clearAll, checkPopUp }) => {
-
   useEffect(() => {
 
     // Resets success, failure, popUp state to default
@@ -21,7 +20,7 @@ const PopUp = ({ success, failure, clearAll, checkPopUp }) => {
   return (
     <S.PopUpContainer  onClick={clearAll}>
       <S.BorderLeft success={success} failure={failure} />
-      <S.ContentContainer>
+      <S.ContentContainer success={success} failure={failure}>
         <S.IconContainer success={success} failure={failure}>
           {
             success &&
@@ -45,4 +44,4 @@ const PopUp = ({ success, failure, clearAll, checkPopUp }) => {
   );
 }
 
-export default PopUp;
+export default React.memo(PopUp);

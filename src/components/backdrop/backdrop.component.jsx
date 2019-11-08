@@ -7,4 +7,4 @@ const Backdrop = ({ onClick }) => {
   );
 }
 
-export default Backdrop;
+export default React.memo(Backdrop);

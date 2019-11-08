@@ -7,15 +7,15 @@ import CustomButton from '../custom-button/custom-button.component';
 
 const EditDeletePost = ({ deleteClick, post, onSubmit, onChange, backdropClick }) => {
 
-  const { title, content } = post;
+  const { title, content, id } = post;
 
   return (
     
-    <S.EditDeletePostContainer title={title} content={content} onSubmit={onSubmit}>
+    <S.EditDeletePostContainer id={id} onSubmit={onSubmit}>
       
       <Backdrop onClick={backdropClick} />
 
-      <S.Form title={title} content={content}>
+      <S.Form id={id}>
         <S.H2>Edit Post</S.H2>
         <FormInput
           placeholder='Title'

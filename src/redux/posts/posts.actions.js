@@ -58,7 +58,7 @@ export const postEditRequestSuccess = (message) => ({
 });
 
 export const postEditRequestFailure = (message) => ({
-  type: actionTypes.POST_EDIT_REQUEST_SUCCESS,
+  type: actionTypes.POST_EDIT_REQUEST_FAILURE,
   payload: message
 });
 

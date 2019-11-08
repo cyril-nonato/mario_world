@@ -76,11 +76,14 @@ export function* postsUserRequestAsync() {
 
 export function* postEditRequestAsync({ payload: { id, ...otherProperties } }) {
   try {
+    const {title, content} = otherProperties;
+    console.log(title , content);
+    yield checkTitleAndContentLength(title, content);
     const updatePost = { ...otherProperties, created_at: firebase.firestore.FieldValue.serverTimestamp(), edited: true };
     yield call(rsf.firestore.updateDocument, `posts/${id}`, updatePost);
     yield put(postEditRequestSuccess(`Your post was successfully edited`))
   } catch (error) {
-    yield put(postEditRequestFailure(`Can't edit the post, please try again later`))
+    yield put(postEditRequestFailure(error.message))
   }
 
 }

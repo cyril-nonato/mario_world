@@ -10,4 +10,4 @@ const CustomButton = ({ onClick, type, children }) => {
   );
 }
 
-export default CustomButton;
+export default React.memo(CustomButton);

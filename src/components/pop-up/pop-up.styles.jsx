@@ -41,6 +41,7 @@ export const PopUpContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
+
   @media only screen and (max-width: ${theme.mediaQueries.phone}px) {
     width: 400px;
   }
@@ -63,6 +64,7 @@ export const ContentContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 8fr;
   grid-gap: 1rem;
+  border: 2px solid ${props => props.success ? theme.colors.green : theme.colors.red};
 `;
 
 export const IconContainer = styled.div`

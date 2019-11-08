@@ -17,7 +17,9 @@ export const docsToMap = (docs) => {
 };
 
 export const checkTitleAndContentLength = (title, content) => {
-  if (title.length <= 2 && content.length <= 2) {
+  const filteredTitle = title.trim();
+  const filteredContent = content.trim();
+  if (filteredTitle.length <= 2 || filteredContent.length <= 2) {
     throw new Error('The title and content should be at least 3 letters long');
   }
   return null;
